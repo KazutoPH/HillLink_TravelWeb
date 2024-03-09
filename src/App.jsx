@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Home from './pages/Home'
+import Camp from './components/Camp'
 
 
 function App() {
