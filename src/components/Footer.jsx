@@ -13,7 +13,10 @@ const Footer = () => {
 
           <div className="flex flex-wrap gap-10 sm:justify-between md:flex-1">
             {FOOTER_LINKS.map((colums) => (
-              <div className="flex flex-col gap-5" key={colums.title}>
+              <div
+                className="flex flex-col gap-5 max-sm:flex-1"
+                key={colums.title}
+              >
                 <h4 className="bold-18 whitespace-nowrap">{colums.title}</h4>
                 <ul className="regular-14 flex flex-col gap-4 text-gray-30">
                   {colums.links.map((link) => (
@@ -34,7 +37,7 @@ const Footer = () => {
                   <NavLink
                     to="/"
                     key={link.label}
-                    className="flex gap-4 md:flex-col lg:flex-row items-end"
+                    className="flex gap-4 md:flex-col lg:flex-row"
                   >
                     <p className="whitespace-nowrap">{link.label}:</p>
                     <p className="whitespace-nowrap medium-14 text-blue-70">
