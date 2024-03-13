@@ -105,7 +105,7 @@ const Navbar = () => {
                   initial="initial"
                   animate="animate"
                   exit="exit"
-                  className=" flex flex-col justify-evenly h-full flex-1 items-center"
+                  className=" flex flex-col justify-center gap-[7%] h-full flex-1 items-center"
                 >
                   {showNav &&
                     NAV_LINKS.map((link) => (
