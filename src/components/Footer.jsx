@@ -34,7 +34,7 @@ const Footer = () => {
                   <NavLink
                     to="/"
                     key={link.label}
-                    className="flex gap-4 md:flex-col lg:flex-row"
+                    className="flex gap-4 md:flex-col lg:flex-row items-end"
                   >
                     <p className="whitespace-nowrap">{link.label}:</p>
                     <p className="whitespace-nowrap medium-14 text-blue-70">
