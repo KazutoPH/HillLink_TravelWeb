@@ -62,7 +62,7 @@ const Navbar = () => {
           <motion.div
             animate={
               showNav
-                ? { rotate: 45, top: "50%", translateY: "-50%" }
+                ? { rotate: -45, top: "50%", translateY: "-50%" }
                 : { rotate: 0 }
             }
             transition={{ duration: 0.2 }}
@@ -80,7 +80,7 @@ const Navbar = () => {
           <motion.div
             animate={
               showNav
-                ? { rotate: -45, bottom: "50%", translateY: "50%" }
+                ? { rotate: 45, bottom: "50%", translateY: "50%" }
                 : { rotate: 0 }
             }
             transition={{ duration: 0.2 }}
@@ -97,32 +97,40 @@ const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="z-10 bg-green-50 fixed right-0 top-0 w-full h-full flex justify-end overflow-hidden rounded-bl-full"
+              className="z-10 lg:hidden bg-green-50 fixed right-0 top-0 w-full h-full flex justify-end  overflow-hidden rounded-bl-full"
             >
-              <motion.ul
-                variants={navListContainer}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                className=" flex flex-1 max-h-screen max-w-[100vw] flex-col justify-evenly items-center"
-              >
-                {showNav &&
-                  NAV_LINKS.map((link) => (
-                    <motion.li
-                      variants={navlistAnimate}
-                      className="text-white"
-                      key={link.key}
-                      onClick={() => setshowNav(!showNav)}
-                    >
-                      <NavLink
-                        to={link.href}
-                        className="text-3xl font-extrabold"
+              <div className="flex flex-1 max-h-screen max-w-[100vw] justify-center items-center">
+                <motion.ul
+                  variants={navListContainer}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
+                  className=" flex flex-col justify-evenly h-full flex-1 items-center"
+                >
+                  {showNav &&
+                    NAV_LINKS.map((link) => (
+                      <motion.li
+                        whileHover={{
+                          scale: 1.1,
+                          transition: { duration: 0.2 },
+                        }}
+                        whileTap={{ scale: 0.9, transition: { duration: 0.2 } }}
+                        variants={navlistAnimate}
+                        className="text-white relative group flex items-center justify-center"
+                        key={link.key}
+                        onClick={() => setshowNav(!showNav)}
                       >
-                        {link.label}
-                      </NavLink>
-                    </motion.li>
-                  ))}
-              </motion.ul>
+                        <NavLink
+                          to={link.href}
+                          className="text-3xl font-extrabold"
+                        >
+                          {link.label}
+                        </NavLink>
+                        <div className=" group-hover:max-w-full w-full absolute -bottom-2 h-1 bg-white max-w-0 transition-all duration-300" />
+                      </motion.li>
+                    ))}
+                </motion.ul>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

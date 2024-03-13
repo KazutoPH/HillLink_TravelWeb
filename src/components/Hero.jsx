@@ -1,49 +1,79 @@
-import React from 'react'
-import Button from './Button'
+import React from "react";
+import Button from "./Button";
+import { motion } from "framer-motion";
+import { DownBounce, FadeIn, ScaleAnimation } from "../contants/framervariants";
 
 const Hero = () => {
   return (
-    <section className='max-container padding-container flex flex-col gap-20 py-10 md:gap-28 lg:py-20 xl:flex-row '>
-      <div className='hero-map' />
+    <section className="max-container padding-container flex flex-col gap-20 py-10 md:gap-28 lg:py-20 xl:flex-row ">
+      <div className="hero-map" />
 
-      <div className='relative z-20 flex flex-1 flex-col xl:w1/2'>
-        <img
-          src='camp.svg'
-          alt='camp'
+      <div className="relative z-20 flex flex-1 flex-col xl:w1/2">
+        <motion.img
+          variants={DownBounce}
+          initial="hidden"
+          whileInView={"animate"}
+          viewport={{ once: true, amount: "some" }}
+          src="camp.svg"
+          alt="camp"
           width={50}
           height={50}
-          className='absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]'
+          className="absolute left-[-5px] top-[-30px] w-10 lg:w-[50px]"
         />
-        <h1 className='bold-52 lg:bold-88'>Putuk Truno Camp Area</h1>
-        <p className='regular-16 mt-6 text-gray-30 xl:max-w-[520px]'>
-          We want to be on each of your journeys seeking the satisfaction of seeing the incorruptible beauty of nature. We can help you on an adventure around the world in just one app
-        </p>
+        <motion.h1
+          variants={FadeIn("up", 0)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true }}
+          className="bold-52 lg:bold-88"
+        >
+          Putuk Truno Camp Area
+        </motion.h1>
+        <motion.p
+          variants={FadeIn("right", 0.4)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true }}
+          className="regular-16 mt-6 text-gray-30 xl:max-w-[520px]"
+        >
+          We want to be on each of your journeys seeking the satisfaction of
+          seeing the incorruptible beauty of nature. We can help you on an
+          adventure around the world in just one app
+        </motion.p>
 
-        <div className='my-11 flex flex-wrap gap-5'>
-          <div className='flex items-center gap-2'>
-            {Array(5).fill(1).map((_, index) =>
-              <img
-                key={index}
-                src='star.svg'
-                alt='star'
-                width={24}
-                height={24}
-              />
-            )}
-          </div>
+        <div className="flex flex-wrap overflow-hidden my-11">
+          <motion.div
+            variants={FadeIn("up", 0.5)}
+            initial="hidden"
+            animate="show"
+            viewport={{ once: true }}
+            className=" flex flex-wrap gap-5"
+          >
+            <div className="flex items-center gap-2">
+              {Array(5)
+                .fill(1)
+                .map((_, index) => (
+                  <img
+                    key={index}
+                    src="star.svg"
+                    alt="star"
+                    width={24}
+                    height={24}
+                  />
+                ))}
+            </div>
 
-          <p className='bold-16 lg:bold-20 text-blue-70'>
-            198k
-            <span className='regular-16 lg:regular-20 ml-1'>Excellent Review</span>
-          </p>
+            <p className="bold-16 lg:bold-20 text-blue-70">
+              198k
+              <span className="regular-16 lg:regular-20 ml-1">
+                Excellent Review
+              </span>
+            </p>
+          </motion.div>
         </div>
 
-        <div className='flex flex-col w-full gap-3 sm:flex-row'>
-          <Button
-            type="button"
-            title="Download App"
-            variant="btn_green"
-          />
+        <div className="flex flex-col w-full gap-3 sm:flex-row">
+          <Button type="button" title="Download App" variant="btn_green" />
           <Button
             type="button"
             title="How we work?"
@@ -53,37 +83,37 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className='relative flex flex-1 items-start  lg:-ml-10'>
-        <div className='relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8'>
-          <div className='flex flex-col'>
-            <div className='flexBetween'>
-              <p className='regular-16 text-gray-20'>Location</p>
-              <img
-                src='close.svg'
-                alt='close'
-                width={24}
-                height={24}
-              />
+      <div className="relative flex flex-1 items-start  lg:-ml-10">
+        <motion.div
+          variants={ScaleAnimation}
+          initial="hidden"
+          whileInView={"animate"}
+          viewport={{ once: true, amount: "some" }}
+          className="relative z-20 flex w-[268px] flex-col gap-8 rounded-3xl bg-green-90 px-7 py-8"
+        >
+          <div className="flex flex-col">
+            <div className="flexBetween">
+              <p className="regular-16 text-gray-20">Location</p>
+              <img src="close.svg" alt="close" width={24} height={24} />
             </div>
-            <p className='bold-20 text-white'>Aguas Calientes</p>
+            <p className="bold-20 text-white">Aguas Calientes</p>
           </div>
 
-          <div className='flexBetween'>
-            <div className='flex flex-col'>
-              <p className='regular-16 block text-gray-20'>Distance</p>
-              <p className='bold-20 text-white'>173.28 mi</p>
+          <div className="flexBetween">
+            <div className="flex flex-col">
+              <p className="regular-16 block text-gray-20">Distance</p>
+              <p className="bold-20 text-white">173.28 mi</p>
             </div>
 
-                        <div className='flex flex-col'>
-              <p className='regular-16 block text-gray-20'>Elevation</p>
-              <p className='bold-20 text-white'>2.040 km</p>
+            <div className="flex flex-col">
+              <p className="regular-16 block text-gray-20">Elevation</p>
+              <p className="bold-20 text-white">2.040 km</p>
             </div>
           </div>
-        </div>
-
+        </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

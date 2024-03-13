@@ -1,24 +1,53 @@
 import React from "react";
+import { DownBounce, FadeIn, ScaleAnimation } from "../contants/framervariants";
+import { motion } from "framer-motion";
 
 const Guide = () => {
   return (
     <section className="flexCenter flex-col">
       <div className="padding-container max-container w-full pb-24">
-        <img src="camp.svg" alt="camp" width={50} height={50} />
-        <p className="uppercase regular-18 -mt-1 mb-3 text-green-50">
+        <motion.img
+          variants={DownBounce}
+          initial="hidden"
+          whileInView={"animate"}
+          viewport={{ once: true, amount: "full" }}
+          src="camp.svg"
+          alt="camp"
+          width={50}
+          height={50}
+        />
+        <motion.p
+          variants={FadeIn("right")}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.5 }}
+          className="uppercase regular-18 -mt-1 mb-3 text-green-50"
+        >
           we are here for you
-        </p>
+        </motion.p>
         <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
-          <h2 className="bold-40 lg:bold-64 xl:max-w-[390px]">
+          <motion.h2
+            variants={FadeIn("up")}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.5 }}
+            className="bold-40 lg:bold-64 xl:max-w-[390px]"
+          >
             Guide you to Easy Path
-          </h2>
-          <p className="regular-16 text-gray-30 xl:max-w-[520px]">
+          </motion.h2>
+          <motion.p
+            variants={FadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.5 }}
+            className="regular-16 text-gray-30 xl:max-w-[520px]"
+          >
             Only with the hilink application you will no longer get lost and get
             lost again, because we already support offline maps when there is no
             internet connection in the field. Invite your friends, relatives and
             friends to have fun in the wilderness through the valley and reach
             the top of the mountain
-          </p>
+          </motion.p>
         </div>
       </div>
 
@@ -31,7 +60,13 @@ const Guide = () => {
           className="w-full object-cover object-center 2xl:rounded-5xl"
         />
 
-        <div className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20">
+        <motion.div
+          variants={ScaleAnimation}
+          initial="hidden"
+          whileInView={"animate"}
+          viewport={{ once: true, amount: 0.5 }}
+          className="absolute flex bg-white py-8 pl-5 pr-7 gap-3 rounded-3xl border shadow-md md:left-[5%] lg:top-20"
+        >
           <img
             src="meter.svg"
             alt="meter"
@@ -56,7 +91,7 @@ const Guide = () => {
               </h4>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
